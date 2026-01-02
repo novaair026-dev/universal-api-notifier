@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Notification</title>
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#000000" />
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 600px;
+                margin: 0 auto;
+                padding: 20px;
+            }
+            button {
+                padding: 10px 20px;
+                margin: 10px 0;
+                background: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            button:hover {
+                background: #0056b3;
+            }
+            #status {
+                background: #d4edda;
+                padding: 10px;
+                border-radius: 5px;
+                margin: 10px 0;
+            }
+            input {
+                width: 100%;
+                padding: 10px;
+                margin: 10px 0;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                box-sizing: border-box;
+            }
+            .uuid {
+                background: #e7f3ff;
+                padding: 10px;
+                border-radius: 5px;
+                word-break: break-all;
+                font-family: monospace;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Notification</h1>
+        <p>
+            Click Register to generate unique ID and subscribe to notifications.
+        </p>
+
+        <button onclick="registerTerminal()">1. Register Terminal</button>
+        <div id="status">Status: Ready</div>
+        <div id="uuid" class="uuid"></div>
+
+        <h3>Send Test Notification (self)</h3>
+        <input id="title" placeholder="Title" value="Hello PWA!" />
+        <textarea id="body" placeholder="Body" rows="3">
+This is a test notification from your terminal!</textarea
+        >
+        <button onclick="sendTestNotification()">Send Test</button>
+
+        <hr />
+        <h3>API Usage Demo</h3>
+        <p>Use your UUID above with:</p>
+        <pre>
+curl -X POST "https://notify-api.work-amazing.us/notify" \
+ -H "Content-Type: application/json" \
+ -d '{"target_uuid":"YOUR_UUID","title":"API Test","body":"Hi!"}'</pre
+        >
+
+        <script src="/app.js"></script>
+    </body>
+</html>
