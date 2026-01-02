@@ -1,7 +1,7 @@
 # Universal API Notifier
 
 ## 🚀 Live Demo
-**Already deployed and ready to use:** [https://notify.work-amazing.us/](https://notify.work-amazing.us/)
+**Live service:** [https://notify.work-amazing.us/](https://notify.work-amazing.us/)
 
 Try the service instantly - no setup required!
 
@@ -29,19 +29,15 @@ npm run dev  # Development
 npm run build  # Production build
 ```
 
-**Or use the live service directly:** https://notify.work-amazing.us/
+**Live service:** https://notify.work-amazing.us/
 
 ## 📋 API Usage
 Send notifications via simple POST:
 
 ```bash
-curl -X POST https://notify.work-amazing.us/api/notify \
+curl -X POST "https://notify-api.work-amazing.us/notify" \
   -H "Content-Type: application/json" \
-  -d '{
-    "title": "Hello!",
-    "message": "Custom notification via API",
-    "type": "info"
-  }'
+  -d '{"target_uuid":"YOUR_UUID","title":"API Test","body":"Hi!"}'
 ```
 
 ## 🤝 Contributing
